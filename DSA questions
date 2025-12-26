@@ -1,0 +1,397 @@
+1. Write a Java program to demonstrate method overloading with different parameter lists (int, double, String).
+
+package com.assignment2;
+
+public class MethodOverloading1 {
+	
+	
+	public void display(int num) {
+        System.out.println("Integer value: " + num);
+    }
+	
+	public void display(double num) {
+        System.out.println("Double value: " + num);
+    }
+	
+	public void display(String str) {
+        System.out.println("String value: " + str);
+    }
+
+	public static void main(String[] args) {
+		
+		
+		MethodOverloading1 obj = new MethodOverloading1();
+		
+		 obj.display(10);         
+	        obj.display(15.5);        
+	        obj.display("Addagiri Sneha Royal"); 
+		
+
+	}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Create a class hierarchy to demonstrate method overriding. For example, a superclass Animal and subclasses Dog, Cat with overridden methods.
+
+package com.assignment2;
+
+class Animal {
+    public void sound() {
+        System.out.println("Some generic animal sound");
+    }
+}
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks bow bow");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Cat meows Meow Meow!");
+    }
+}
+public class MethodOverriding1 {
+	
+	public static void main(String[] args) {
+		
+		Animal myDog = new Dog();
+        Animal myCat = new Cat();
+        Animal genericAnimal = new Animal();
+        
+        genericAnimal.sound(); 
+        myDog.sound();         
+        myCat.sound();
+
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+3. Write a Java program where a method is overloaded based on the number of arguments passed.
+
+package com.assignment2;
+
+public class OverloadingByArguments {
+	
+	 public void display(int a) {
+	        System.out.println("One argument: " + a);
+	    }
+	 
+	 public void display(int a, int b) {
+	        System.out.println("Two arguments: " + a + "," + b);
+	    }
+	 
+	 public void display(int a, int b, int c) {
+	        System.out.println("Three arguments: " + a + "," + b + "," + c);
+	    }
+
+
+	public static void main(String[] args) {
+		OverloadingByArguments b= new OverloadingByArguments();
+		
+		b.display(10);
+		b.display(20,30);
+		b.display(10,20,30);
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+4. Create a program to show runtime polymorphism using method overriding in the context of vehicles (Car, Bike, etc.).
+
+package com.assignment2;
+
+class Vehicle {
+    public void start() {
+        System.out.println("Vehicle is starting...");
+    }
+}
+class Car extends Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Car is starting with key ignition.");
+    }
+}
+class Bike extends Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Bike is starting with kick start.");
+    }
+}
+
+public class RuntimePolymorphism {
+
+	public static void main(String[] args) {
+	
+		Vehicle myVehicle1 = new Car();
+        Vehicle myVehicle2 = new Bike();
+        
+        myVehicle1.start(); 
+        myVehicle2.start(); 
+
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+5. Write a program that demonstrates the use of abstract classes and abstract methods.
+
+package com.assignment2;
+
+	abstract class Employee {
+	    String name;
+	
+	    Employee(String name) {
+	        this.name = name;
+	    }
+	    
+	    abstract void calculateSalary();
+	    
+	    void displayName() {
+	        System.out.println("Employee Name: " + name);
+	    }
+	}
+	    
+	class Manager extends Employee {
+	    double salary;
+	
+	    Manager(String name, double salary) {
+	        super(name);
+	        this.salary = salary;
+	    }
+	
+	    @Override
+	    void calculateSalary() {
+	        System.out.println("Manager's Salary: " + salary);
+	    }
+	}
+public class AbstractClass {
+
+	public static void main(String[] args) {
+		Employee emp1 = new Manager("Alice", 80000);
+        emp1.displayName();
+        emp1.calculateSalary();
+
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+6. Create an abstract class Shape with an abstract method area(). Implement this method in subclasses Circle and Rectangle.
+
+package com.assignment2;
+
+	abstract class Shape {
+	    abstract void area();
+	}
+	
+	class Circle extends Shape {
+	    double radius = 5;
+	
+	    @Override
+	    void area() {
+	        System.out.println("Area of Circle: " + (3.14 * radius * radius));
+	    }
+	}
+	
+	class Rectangle extends Shape {
+	    double length = 4, width = 6;
+
+	    @Override
+	    void area() {
+	        System.out.println("Area of Rectangle: " + (length * width));
+	    }
+	}
+
+public class AbstractMethod1 {
+
+	public static void main(String[] args) {
+		
+		Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
+
+        circle.area();
+        rectangle.area();
+
+	}
+
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+7. Write a Java program that demonstrates multiple inheritance using interfaces (e.g., Interface1, Interface2, and a class implementing both).
+
+package com.assignment2;
+
+	interface Interface1 {
+	    void method1();
+	}
+	interface Interface2 {
+	    void method2();
+	}
+	class MyClass implements Interface1, Interface2 {
+	 @Override
+	 public void method1() {
+	     System.out.println("Method 1 from Interface1 implemented.");
+	 }
+	 @Override
+	 public void method2() {
+	     System.out.println("Method 2 from Interface2 implemented.");
+	 }
+	}
+	public interface MultipleInheritanceDemo {
+		public static void main(String[] args) {
+	        MyClass obj = new MyClass();
+	        obj.method1(); // Calls Interface1 method
+	        obj.method2();
+	}
+		}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+8. Create an interface Payment with methods payOnline() and payOffline(). Implement this in classes CreditCard and Cash.
+
+package com.assignment2;
+
+interface Payment {
+    void payOnline();
+    void payOffline();
+}
+
+class CreditCard implements Payment {
+    @Override
+    public void payOnline() {
+        System.out.println("Payment made online using Credit Card.");
+    }
+
+    @Override
+    public void payOffline() {
+        System.out.println("Payment made offline using Credit Card at a POS machine.");
+    }
+}
+
+class Cash implements Payment {
+    @Override
+    public void payOnline() {
+        System.out.println("Cash cannot be used for online payments.");
+    }
+
+    @Override
+    public void payOffline() {
+        System.out.println("Payment made offline using Cash.");
+    }
+}
+public class PaymentDemo {
+
+	public static void main(String[] args) {
+		
+		Payment payment1 = new CreditCard();
+        Payment payment2 = new Cash();
+
+        System.out.println("Using Credit Card:");
+        payment1.payOnline();
+        payment1.payOffline();
+
+        System.out.println("\nUsing Cash:");
+        payment2.payOnline();
+        payment2.payOffline();
+
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+9. Write a Java program that combines both method overloading and method overriding in the same program.
+
+package com.assignment2;
+
+class Student {
+    
+    void display(String name) {
+        System.out.println("Name: " + name);
+    }
+
+    void display(String name, int age) {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+
+    void study() {
+        System.out.println("Student is studying.");
+    }
+}
+
+class CollegeStudent extends Student {
+    // Method Overriding
+    @Override
+    void study() {
+        System.out.println("College Student is studying hard.");
+    }
+}
+public class OverloadingOverriding {
+
+	public static void main(String[] args) {
+		 Student s1 = new Student();
+	        s1.display("Sneha");
+	        s1.display("Sneha", 20);
+	        s1.study();  // Parent version
+
+	        CollegeStudent cs = new CollegeStudent();
+	        cs.display("Rahul");
+	        cs.display("Rahul", 21);
+	        cs.study();
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+10. Create an interface Vehicle with a method drive(). Implement it in multiple classes and demonstrate polymorphism using interface reference.
+
+package com.assignment2;
+
+	interface Vehicle1 {
+	    void drive(); // abstract method
+	}
+	class Truck implements Vehicle1 {
+	    public void drive() {
+	        System.out.println("Truck is carrying goods on the highway.");
+	    }
+	}
+	class Train implements Vehicle1 {
+	    public void drive() {
+	        System.out.println("Train is running on railway tracks.");
+	    }
+	}
+	class Airplane implements Vehicle1 {
+	    public void drive() {
+	        System.out.println("Airplane is flying in the sky.");
+	    }
+	}
+	public class VehicleInterface {
+		public static void main(String[] args) {
+			Vehicle1 v;
+	        v = new Truck();
+	        v.drive();
+	        v = new Train();
+	        v.drive();  
+	        v = new Airplane();
+	        v.drive();
+		}	
+	}
+
+
