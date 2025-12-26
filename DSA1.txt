@@ -1,0 +1,204 @@
+1.      Write a Java program to find the length of a given string without using the length() method.
+
+package com.assignment1;
+
+public class LenOfString {
+
+	public static void main(String[] args) {
+		String s="Addagiri Sneha Royal";
+		
+		char[] ch= s.toCharArray();
+		int length=0;
+		for(int i=0;i<=ch.length;i++) {
+			length++;
+		}
+		System.out.println("length is:"+ length);
+
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.      Write a Java program to check whether two strings are anagrams (contain the same characters in any order).
+
+package com.assignment1;
+import java.util.Arrays;
+public class Anagrams {
+
+	public static void main(String[] args) {
+		String str1 = "listen";
+        String str2 = "silent";
+        
+        str1 = str1.replaceAll(" ", "").toLowerCase();
+        str2 = str2.replaceAll(" ", "").toLowerCase();
+        
+        if (str1.length() != str2.length()) {
+            System.out.println("Not Anagrams");
+        } 
+        
+        else {
+            // Convert strings to char arrays
+            char[] arr1 = str1.toCharArray();
+            char[] arr2 = str2.toCharArray();
+
+            // Sort arrays
+            Arrays.sort(arr1);
+            Arrays.sort(arr2);
+
+            // Compare
+            if (Arrays.equals(arr1, arr2)) {
+                System.out.println("Anagrams");
+            } else {
+                System.out.println("Not Anagrams");
+            }
+        }
+
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.      Write a Java program to convert all characters of a string to uppercase and then to lowercase using String class methods.
+
+package com.assignment1;
+
+public class UpLowCase {
+
+	public static void main(String[] args) {
+		String st= "Addagiri Sneha Royal";
+		
+		System.out.println("Upper Case: "+st.toUpperCase());
+		
+		String lowerCase = st.toLowerCase();
+		System.out.println("Lower Case: "+ lowerCase);
+
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.      Implement a Java program to count the number of vowels and consonants in a given string.
+package com.assignment1;
+
+public class CountVowCon {
+
+	public static void main(String[] args) {
+		String s= "Addagiri Sneha Royal";
+		int Vowcount=0;
+		int Concount=0;
+		s = s.toLowerCase();
+		for(int i=0; i<s.length();i++) {
+			char ch= s.charAt(i);
+			if(ch>='a' && ch<='z') {
+				if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u') {
+					Vowcount++;
+					
+				}
+				else {
+					Concount++;
+				}
+			}
+		}
+		System.out.println("vowel count:"+ Vowcount);
+		System.out.println("Consonants count:"+ Concount);
+		
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.      Write a program to demonstrate various important methods of the String class like substring(), indexOf(), equalsIgnoreCase(), and trim().
+
+package com.assignment1;
+public class MethodsString {
+
+	public static void main(String[] args) {
+		
+		String s= " Hello I'm Addagiri Sneha Royal ";
+		
+		System.out.println(s.substring(7));
+		System.out.println(s.indexOf('S'));
+		System.out.println(s.equalsIgnoreCase(s));
+		System.out.println(s.trim());
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.      Implement a program to create a 1D array of integers, initialize it, and print all elements along with their indices.
+package com.assignment1;
+
+public class OneDArray {
+	public static void main(String[] args) {
+		int [] arr = {1,2,3,4,5,6,7,8,9,10};
+		for(int i=0;i<arr.length;i++) {
+			System.out.println("index of "+arr[i]+" is: "+ i);	
+		}
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+7.      Write a Java program to create a 2D array of size 3x3, initialize it with values, and print the matrix in a formatted way.
+package com.assignment1;
+
+public class PrintingMatrix {
+	public static void main(String[] args) {
+		int[][] matrix= {{1, 2, 3},{4, 5, 6},{7, 8, 9}};
+		for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.      Write a Java program to find the sum of all elements of a 1D integer array.
+package com.assignment1;
+public class SumOfArrayEle {
+	public static void main(String[] args) {
+		int[]arr1 = {1,2,3,4,5,6,7,8,9,10};	
+		int sum=0;
+		
+		for(int i=0;i<=arr1.length-1;i++) {
+			sum=sum+arr1[i];
+		}
+		System.out.println("Sum of Array Elements: "+ sum);
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+9. Implement a Java program to find the maximum and minimum values in a 2D integer array.
+
+package com.assignment1;
+
+public class MaxMinEle {
+	public static void main(String[] args) {
+
+				int[][] arr = {
+			            {12, 45, 68},
+			            {34, 2, 98},
+			            {90, 24, 10}
+			        };
+
+			        int min = arr[0][0];
+			        int max = arr[0][0];
+
+			        for (int i = 0; i < arr.length; i++) {
+			            for (int j = 0; j < arr[i].length; j++) {
+			                if (arr[i][j] < min) {
+			                    min = arr[i][j]; 
+			                }
+			                if (arr[i][j] > max) {
+			                    max = arr[i][j]; 
+			                }
+			            }
+			        }
+			        System.out.println("Minimum value in the 2D array: " + min);
+			        System.out.println("Maximum value in the 2D array: " + max);
+	}
+
+}
